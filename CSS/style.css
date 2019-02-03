@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-#current {
-    display: none;
-}
-
 .container {
     background-image: url(/Images/cars.jpg);
     background-repeat: no-repeat;

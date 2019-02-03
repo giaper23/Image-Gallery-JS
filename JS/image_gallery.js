@@ -22,14 +22,16 @@ function thumbnailClick(e) {
     e.target.style.opacity = opacity; // Changes opacity of target img
 }
 
-/*--------------------------------------------------------------------------------------*/
- 
-for ( let i = 0; i < thumbnails.length; i++ ) {
+let interval = setInterval(loop, 3000);
 
-    if ( i === thumbnails.length) {
-        current.src = 'photo' + i + '.jpeg';
-        i = 0;    
-    }
-    else {current.src = 'photo' + i + '.jpeg';    
+function loop() {
+    for ( let i = 0; i < thumbnails.length; i++) {
+        
+        if ( i === thumbnails.length ) {
+            current.src = '/Images/photo' + i + '.jpeg';
+            i = 0;
         }
+        else {current.src = '/Images/photo' + i + '.jpeg';  
+            }      
+    }
 }
