@@ -4,8 +4,6 @@ const current = document.querySelector('#current'); // The current image shown
 const thumbnails = document.querySelectorAll('.thumbnails img'); // All the small thumbnails
 const opacity = 0.3;
 
-thumbnails[0].style.opacity = opacity; // Thumbnail of first image displayed by default has opacity
-
 /* For each img in the div with class name "thumbnails", listen for click then call function thumbnailCLick */
 thumbnails.forEach(img => img.addEventListener('click', thumbnailClick));
 
@@ -22,16 +20,18 @@ function thumbnailClick(e) {
     e.target.style.opacity = opacity; // Changes opacity of target img
 }
 
-let interval = setInterval(loop, 3000);
+let interval = setInterval(autoPlay, 2000); // Call autoPlay every 2000ms
+let i = 0; // We must track the value of i
 
-function loop() {
-    for ( let i = 0; i < thumbnails.length; i++) {
-        
-        if ( i === thumbnails.length ) {
-            current.src = '/Images/photo' + i + '.jpeg';
-            i = 0;
+function autoPlay() { 
+
+        if ( i === thumbnails.length - 1) { // The value of i will never be 10, but it will be 9 on the last image
+            current.src = '/Images/photo' + i + '.jpeg'; // Changes src of current
+            i = 0; // Resets i
         }
-        else {current.src = '/Images/photo' + i + '.jpeg';  
-            }      
-    }
+
+        else {current.src = '/Images/photo' + i + '.jpeg'; // Changes src of current
+            i++; // Adds 1 to i 
+            }
+
 }
