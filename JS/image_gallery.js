@@ -1,3 +1,5 @@
+/*------------------------------------------------------------------------------------*/
+
 const current = document.querySelector('#current'); // The current image shown
 const thumbnails = document.querySelectorAll('.thumbnails img'); // All the small thumbnails
 const opacity = 0.3;
@@ -20,11 +22,13 @@ function thumbnailClick(e) {
     e.target.style.opacity = opacity; // Changes opacity of target img
 }
 
+/*--------------------------------------------------------------------------------------*/
+ 
 for ( let i = 0; i < thumbnails.length; i++ ) {
 
     if ( i === thumbnails.length) {
-        i = 0;
-        current.src = 'photo' photo' + i + '.jpeg';    
+        current.src = 'photo' + i + '.jpeg';
+        i = 0;    
     }
     else {current.src = 'photo' + i + '.jpeg';    
         }
