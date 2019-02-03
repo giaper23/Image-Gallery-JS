@@ -1,4 +1,4 @@
-/*------------------------------------------------------------------------------------*/
+/*----------------------------------- IMAGE GALLERY --------------------------------------*/
 
 const current = document.querySelector('#current'); // The current image shown
 const thumbnails = document.querySelectorAll('.thumbnails img'); // All the small thumbnails
@@ -19,6 +19,8 @@ function thumbnailClick(e) {
     
     e.target.style.opacity = opacity; // Changes opacity of target img
 }
+
+/*-------------------------------------- AUTOPLAY ---------------------------------------*/
 
 let interval = setInterval(autoPlay, 2000); // Call autoPlay every 2000ms
 let i = 0; // We must track the value of i
