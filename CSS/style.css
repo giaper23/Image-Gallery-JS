@@ -1,0 +1,66 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#current {
+    display: none;
+}
+
+.container {
+    background-image: url(/Images/cars.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+header {
+    text-align: center;
+    padding: 1%;
+    font-family: 'Lobster', cursive;
+    color: white;
+    text-shadow: 1px 3px 3px black;
+}
+
+header h1 {
+    font-size: 3em;
+}
+
+main {
+    border: 5px solid black;
+    background: black;
+    max-width: 1200px;
+    box-shadow: 1px 5px 5px black;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.gallery img, .thumbnails img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.thumbnails {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 5px;
+}
+
+/*----- Animation -----*/
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.fade_in {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in 1 forwards;
+}
+
+@media only screen and (max-width: 600px) {
+    .thumbnails {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
