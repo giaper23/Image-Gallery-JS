@@ -21,8 +21,11 @@ function thumbnailClick(e) {
 }
 
 /*-------------------------------------- AUTOPLAY FUNCTION---------------------------------------*/
-
 let interval = setInterval(autoPlay, 2000); // Call autoPlay every 2000ms
+function carousel() {
+let interval = setInterval(autoPlay, 2000); // Call autoPlay every 2000ms
+}
+
 let i = 0; // We must track the value of i
 
 function autoPlay() { 
@@ -48,4 +51,4 @@ function stopPlay() {
 /*-------------------------- Starting / Stopping Autoplay -----------------------*/
 
 current.onclick = stopPlay;
-current.ondblclick = interval; // Bug !!!
+current.ondblclick = carousel; 
