@@ -1,4 +1,5 @@
 /*----------------------------------- IMAGE GALLERY --------------------------------------*/
+alert("Click stops autoplay. Double click starts the autoplay.");
 
 const current = document.querySelector('#current'); // The current image shown
 const thumbnails = document.querySelectorAll('.thumbnails img'); // All the small thumbnails
@@ -22,8 +23,12 @@ function thumbnailClick(e) {
 
 /*-------------------------------------- AUTOPLAY FUNCTION---------------------------------------*/
 let interval = setInterval(autoPlay, 2000); // Call autoPlay every 2000ms
+
 function carousel() {
-let interval = setInterval(autoPlay, 2000); // Call autoPlay every 2000ms
+
+clearInterval(interval); // Stops the autoplay <---- Very important, without it I could only stop and start one time!
+
+interval = setInterval(autoPlay, 2000); // Call autoPlay every 2000ms
 }
 
 let i = 0; // We must track the value of i
@@ -44,11 +49,11 @@ function autoPlay() {
 /*---------------------------------- STOP AUTOPLAY FUNCTION ------------------------------------*/
 
 function stopPlay() {
-    clearInterval(interval);
+    clearInterval(interval); // Stops the autoplay
 }
 
 
 /*-------------------------- Starting / Stopping Autoplay -----------------------*/
 
-current.onclick = stopPlay;
-current.ondblclick = carousel; 
+current.onclick = stopPlay; // On click stop autoplay
+current.ondblclick = carousel; //On double click start the autoplay
