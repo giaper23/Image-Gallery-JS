@@ -13,10 +13,12 @@
 
 header {
     text-align: center;
-    padding: 1%;
     font-family: 'Lobster', cursive;
     color: white;
     text-shadow: 1px 3px 3px black;
+    padding-bottom: 50px;
+    padding-top: 100px;
+
 }
 
 header h1 {
@@ -41,6 +43,10 @@ main {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-gap: 5px;
+}
+
+footer {
+    min-height: 250px;
 }
 
 /*----- Animation -----*/
