@@ -1,5 +1,4 @@
 /*----------------------------------- IMAGE GALLERY --------------------------------------*/
-
 alert("Click stops autoplay. Double click starts the autoplay.");
 
 const current = document.querySelector('#current'); // The current image shown
@@ -42,7 +41,7 @@ function thumbnailClick(e) {
 
     stopPlay();
 
-    i = thumbnails.indexOf(e.target) + 1; 
+    i = thumbnails.indexOf(e.target) + 1;
 
 }
 
@@ -50,16 +49,15 @@ function thumbnailClick(e) {
 
 function autoPlay() { 
 
-    if ( i === thumbnails.length -1) {
-         // The value of i will never be 10, but it will be 9 on the last image
+    if ( i === thumbnails.length ) {
+        
+        i = 0; // Resets i when at the end of thumbnails items
         current.src = thumbnails[i].src;
         fadeIn();
-        i = 0; // Resets i when at the end of thumbnails items
-
+        i = 1; // If I don't make i =1 I will see first pic 2 times
     }
 
     else if ( i === 0 && j === 0) {
-
         current.src = thumbnails[i].src;
         i++; // After this runs add +1 to i
         j++; // After this one time it will never run again because only the first time it runs both i and j are 0
@@ -68,7 +66,7 @@ function autoPlay() {
 
     else {
         
-        current.src = '/Images/photo' + i + '.jpeg'; // Changes src of current
+        current.src = thumbnails[i].src;
         fadeIn();
         i++; // Adds 1 to i
     
@@ -78,12 +76,12 @@ function autoPlay() {
 
 /*-------------------------------------- CAROUSEL FUNCTION---------------------------------------*/
 
-let interval = setInterval(autoPlay, 5000); // Call autoPlay every X ms
+let interval = setInterval(autoPlay, 2000); // Call autoPlay every X ms
 
 function carousel() {
 
 clearInterval(interval); // Stops the autoplay <---- Very important, without it I could only stop and start one time!
-interval = setInterval(autoPlay, 5000); // Call autoPlay every X ms
+interval = setInterval(autoPlay, 2000); // Call autoPlay every X ms
 thumbnails.forEach(img => (img.style.opacity = 1)); // Resets opacity on each click
 
 }

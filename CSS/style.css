@@ -5,7 +5,7 @@
 }
 
 .container {
-    background-image: url(Images/cars.jpg);
+    background-image: url(/Background/cars.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
