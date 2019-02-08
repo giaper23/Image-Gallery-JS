@@ -76,12 +76,12 @@ function autoPlay() {
 
 /*-------------------------------------- CAROUSEL FUNCTION---------------------------------------*/
 
-let interval = setInterval(autoPlay, 2000); // Call autoPlay every X ms
+let interval = setInterval(autoPlay, 5000); // Call autoPlay every X ms
 
 function carousel() {
 
 clearInterval(interval); // Stops the autoplay <---- Very important, without it I could only stop and start one time!
-interval = setInterval(autoPlay, 2000); // Call autoPlay every X ms
+interval = setInterval(autoPlay, 5000); // Call autoPlay every X ms
 thumbnails.forEach(img => (img.style.opacity = 1)); // Resets opacity on each click
 
 }
