@@ -9,6 +9,7 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+    padding: 15%;
 }
 
 header {
@@ -16,21 +17,18 @@ header {
     font-family: 'Lobster', cursive;
     color: white;
     text-shadow: 1px 3px 3px black;
-    padding-bottom: 50px;
-    padding-top: 100px;
-
 }
 
 header h1 {
-    font-size: 3em;
+    font-size: 3.5vw;
 }
 
 main {
-    border: 5px solid black;
-    background: black;
+    border: 5px solid white;
+    background: white;
     max-width: 1200px;
-    box-shadow: 1px 5px 5px black;
-    border-radius: 5px;
+    box-shadow: 1px 3px 5px black;
+    border-radius: 10px;
     width: 80%;
 }
 

@@ -1,5 +1,5 @@
 /*----------------------------------- IMAGE GALLERY --------------------------------------*/
-alert("Click stops autoplay. Double click starts the autoplay.");
+alert("CLICK on the big image to STOP AUTOPLAY. \nDOUBLE CLICK it to START AGAIN. \nYou can also CLICK the THUMBNAILS to choose an image!");
 
 const current = document.querySelector('#current'); // The current image shown
 const thumbnails = Array.from(document.querySelectorAll('.thumbnails img')); // All the small thumbnails
