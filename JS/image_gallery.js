@@ -3,7 +3,7 @@
 alert("Click stops autoplay. Double click starts the autoplay.");
 
 const current = document.querySelector('#current'); // The current image shown
-const thumbnails = document.querySelectorAll('.thumbnails img'); // All the small thumbnails
+const thumbnails = Array.from(document.querySelectorAll('.thumbnails img')); // All the small thumbnails
 const opacity = 0.3; // Opacity value
 let i = 0; // Counts the items in thumbnails
 let j = 0; // Needed to count the first time a loop runs
@@ -42,7 +42,7 @@ function thumbnailClick(e) {
 
     stopPlay();
 
-    i = thumbnails.indexOf(); // Not working !! BUG
+    i = thumbnails.indexOf(e.target) + 1; 
 
 }
 
@@ -50,9 +50,9 @@ function thumbnailClick(e) {
 
 function autoPlay() { 
 
-    if ( i === thumbnails.length - 1) {
+    if ( i === thumbnails.length -1) {
          // The value of i will never be 10, but it will be 9 on the last image
-        current.src = '/Images/photo' + i + '.jpeg'; // Changes src of current
+        current.src = thumbnails[i].src;
         fadeIn();
         i = 0; // Resets i when at the end of thumbnails items
 
@@ -60,7 +60,7 @@ function autoPlay() {
 
     else if ( i === 0 && j === 0) {
 
-        current.src = '/Images/photo' + i + '.jpeg'; // Changes src of current
+        current.src = thumbnails[i].src;
         i++; // After this runs add +1 to i
         j++; // After this one time it will never run again because only the first time it runs both i and j are 0
 
