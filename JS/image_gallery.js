@@ -1,14 +1,12 @@
 /*----------------------------------- IMAGE GALLERY --------------------------------------*/
-alert("CLICK on the big image to STOP AUTOPLAY. \nDOUBLE CLICK it to START AGAIN. \nYou can also CLICK the THUMBNAILS to choose an image!");
+alert("Click on the big image to STOP autoplay. \nDouble click it to START again. \nYou can also click the THUMBNAILS to choose an image!");
 
 const current = document.querySelector('#current'); // The current image shown
 const thumbnails = Array.from(document.querySelectorAll('.thumbnails img')); // All the small thumbnails
 const opacity = 0.3; // Opacity value
 let i = 0; // Counts the items in thumbnails
 let j = 0; // Needed to count the first time a loop runs
-
-/* For each img in the div with class name "thumbnails", listen for click then call function thumbnailCLick */
-thumbnails.forEach(img => img.addEventListener('click', thumbnailClick));
+let thumbnailAudio = new Audio('Sound/click.mp3'); // Sound effect for clicking thumbnails
 
 /*------------------------------------ FADE IN FUNCTION ---------------------------------------*/
 
@@ -43,7 +41,16 @@ function thumbnailClick(e) {
 
     i = thumbnails.indexOf(e.target) + 1;
 
+    thumbnailAudio.pause(); // Sound effect lasts some time so if we press the button faster it will be stopped, then played
+
+    thumbnailAudio.currentTime = 0; // Time of play is now reset
+
+    thumbnailAudio.play(); // Everytime we click a thumbnail this sound plays
+
 }
+
+/* For each img in the div with class name "thumbnails", listen for click then call function thumbnailCLick */
+thumbnails.forEach(img => img.addEventListener('click', thumbnailClick));
 
 /*--------------------------------------- AUTOPLAY FUNCTION -----------------------------------*/
 
@@ -79,11 +86,9 @@ function autoPlay() {
 let interval = setInterval(autoPlay, 3000); // Call autoPlay every X ms
 
 function carousel() {
-
 clearInterval(interval); // Stops the autoplay <---- Very important, without it I could only stop and start one time!
 interval = setInterval(autoPlay, 3000); // Call autoPlay every X ms
 thumbnails.forEach(img => (img.style.opacity = 1)); // Resets opacity on each click
-
 }
 
 /*-------------------------- Starting / Stopping Autoplay -----------------------*/

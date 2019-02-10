@@ -46,6 +46,18 @@ main {
 
 footer {
     min-height: 250px;
+    padding: 5%;
+    text-align: center;
+}
+
+footer p {
+    color: white;
+    border: 1px solid white;
+    background: rgba(0,0,0,0.8);
+    font-family: 'Lobster', cursive;
+    width: 12%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px black;
 }
 
 /*----- Animation -----*/
@@ -64,5 +76,9 @@ footer {
 
     .thumbnails {
         grid-template-columns: repeat(5, 1fr);
+    }
+
+    footer p {
+        width: 38%;
     }
 }
