@@ -82,7 +82,7 @@ footer {
     appearance: none;
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
-    background: url(/Logo/speedometer.png); /* Purple background */
+    background: url(../Logo/speedometer.png); /* Purple background */
     background-size: cover;
     cursor: pointer; /* Cursor on hover */
   }
@@ -90,7 +90,7 @@ footer {
   .slider::-moz-range-thumb {
     width: 25px; /* Set a specific slider handle width */
     height: 25px; /* Slider handle height */
-    background: url(/Logo/speedometer.png); /* Purple background */
+    background: url(../Logo/speedometer.png); /* Purple background */
     background-size: cover;
     cursor: pointer; /* Cursor on hover */
   }
