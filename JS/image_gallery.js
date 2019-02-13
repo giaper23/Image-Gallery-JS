@@ -1,12 +1,17 @@
 /*----------------------------------- IMAGE GALLERY --------------------------------------*/
-alert("Click on the big image to STOP autoplay. \nDouble click it to START again. \nYou can also click the THUMBNAILS to choose an image!");
+alert("Click on the big image to STOP autoplay. \nDouble click it to START again. \nControl the interval with SLIDER! \nYou can also click the THUMBNAILS to choose an image! ");
 
 const current = document.querySelector('#current'); // The current image shown
 const thumbnails = Array.from(document.querySelectorAll('.thumbnails img')); // All the small thumbnails
 const opacity = 0.3; // Opacity value
+
 let i = 0; // Counts the items in thumbnails
 let j = 0; // Needed to count the first time a loop runs
+
 let thumbnailAudio = new Audio('Sound/click.mp3'); // Sound effect for clicking thumbnails
+
+let slider = document.getElementById("myRange");
+let output = document.getElementById("demo");
 
 /*------------------------------------ FADE IN FUNCTION ---------------------------------------*/
 
@@ -83,11 +88,11 @@ function autoPlay() {
 
 /*-------------------------------------- CAROUSEL FUNCTION---------------------------------------*/
 
-let interval = setInterval(autoPlay, 3000); // Call autoPlay every X ms
+let interval = setInterval(autoPlay, slider.value * 1000); // Call autoPlay every X ms
 
 function carousel() {
 clearInterval(interval); // Stops the autoplay <---- Very important, without it I could only stop and start one time!
-interval = setInterval(autoPlay, 3000); // Call autoPlay every X ms
+interval = setInterval(autoPlay, slider.value * 1000); // Call autoPlay every X ms
 thumbnails.forEach(img => (img.style.opacity = 1)); // Resets opacity on each click
 }
 
@@ -95,3 +100,14 @@ thumbnails.forEach(img => (img.style.opacity = 1)); // Resets opacity on each cl
 
 current.onclick = stopPlay; // On click stop autoplay
 current.ondblclick = carousel; //On double click start the autoplay
+
+/*-------------------------- SLIDER ----------------------------*/
+
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
+  carousel();
+
+} 
