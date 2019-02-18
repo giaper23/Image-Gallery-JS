@@ -91,9 +91,11 @@ function autoPlay() {
 let interval = setInterval(autoPlay, slider.value * 1000); // Call autoPlay every X ms
 
 function carousel() {
+
 clearInterval(interval); // Stops the autoplay <---- Very important, without it I could only stop and start one time!
 interval = setInterval(autoPlay, slider.value * 1000); // Call autoPlay every X ms
 thumbnails.forEach(img => (img.style.opacity = 1)); // Resets opacity on each click
+
 }
 
 /*-------------------------- Starting / Stopping Autoplay -----------------------*/
@@ -107,7 +109,8 @@ output.innerHTML = slider.value; // Display the default slider value
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function() {
+
   output.innerHTML = this.value;
   carousel();
-
+  
 } 

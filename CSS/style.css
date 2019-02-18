@@ -78,21 +78,21 @@ footer {
   
   /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
   .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+    -webkit-appearance: none; 
     appearance: none;
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: url(../Logo/speedometer.png); /* Purple background */
+    width: 25px; 
+    height: 25px; 
+    background: url(../Logo/speedometer.png); 
     background-size: cover;
-    cursor: pointer; /* Cursor on hover */
+    cursor: pointer; 
   }
   
   .slider::-moz-range-thumb {
-    width: 25px; /* Set a specific slider handle width */
-    height: 25px; /* Slider handle height */
-    background: url(../Logo/speedometer.png); /* Purple background */
+    width: 25px; 
+    height: 25px; 
+    background: url(../Logo/speedometer.png);
     background-size: cover;
-    cursor: pointer; /* Cursor on hover */
+    cursor: pointer; 
   }
 
 /*------------------------- SLIDER END ----------------------------------*/
