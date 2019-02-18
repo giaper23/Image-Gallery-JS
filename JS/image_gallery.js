@@ -1,5 +1,5 @@
 /*----------------------------------- IMAGE GALLERY --------------------------------------*/
-alert("Click on the big image to STOP autoplay. \nDouble click it to START again. \nControl the interval with SLIDER! \nYou can also click the THUMBNAILS to choose an image! ");
+alert("Click on the big image to STOP autoplay. \nDouble click it to START again. \nControl how fast images change with the SLIDER! \nYou can also click on the THUMBNAILS to choose an image! ");
 
 const current = document.querySelector('#current'); // The current image shown
 const thumbnails = Array.from(document.querySelectorAll('.thumbnails img')); // All the small thumbnails
@@ -112,5 +112,5 @@ slider.oninput = function() {
 
   output.innerHTML = this.value;
   carousel();
-  
+
 } 
