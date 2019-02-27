@@ -1,7 +1,9 @@
 /*----------------------------------- IMAGE GALLERY --------------------------------------*/
 alert("Click on the big image to STOP autoplay. \nDouble click it to START again. \nControl how fast images change with the SLIDER! \nYou can also click on the THUMBNAILS to choose an image! ");
 
-const current = document.querySelector('#current'); // The current image shown
+const currentImg = document.querySelector('#currentImg'); // The current image shown
+const arrow_left = document.querySelector('#arrow_left'); // The left arrow
+const arrow_right = document.querySelector('#arrow_right'); // The right arrow
 const thumbnails = Array.from(document.querySelectorAll('.thumbnails img')); // All the small thumbnails
 const opacity = 0.3; // Opacity value
 
@@ -17,8 +19,8 @@ let output = document.getElementById("demo");
 
 function fadeIn() {
 
-    current.classList.add('fade_in'); // Adds class "fade_in" which contains animation to current 
-    setTimeout(() => current.classList.remove('fade_in'), 500); // Removes class after 500ms because it stays on the current img and doesn't add class again if we don't remove it
+    currentImg.classList.add('fade_in'); // Adds class "fade_in" which contains animation to currentImg 
+    setTimeout(() => currentImg.classList.remove('fade_in'), 500); // Removes class after 500ms because it stays on the current img and doesn't add class again if we don't remove it
 
 }
 
@@ -30,13 +32,13 @@ function stopPlay() {
 
 }
 
-/*----------------------------------- CLICK FUNCTION -----------------------------------------*/
+/*----------------------------------- THUMBNAIL CLICK FUNCTION -----------------------------------------*/
 
 function thumbnailClick(e) {
 
     thumbnails.forEach(img => (img.style.opacity = 1)); // Resets opacity on each click
     
-    current.src = e.target.src; // Changes the src of img named "current" to the src of the img being clicked
+    currentImg.src = e.target.src; // Changes the src of img named "currentImg" to the src of the img being clicked
     
     fadeIn();
     
@@ -52,6 +54,8 @@ function thumbnailClick(e) {
 
     thumbnailAudio.play(); // Everytime we click a thumbnail this sound plays
 
+    console.log("I:", i);
+
 }
 
 /* For each img in the div with class name "thumbnails", listen for click then call function thumbnailCLick */
@@ -64,21 +68,23 @@ function autoPlay() {
     if ( i === thumbnails.length ) {
         
         i = 0; // Resets i when at the end of thumbnails items
-        current.src = thumbnails[i].src;
+        currentImg.src = thumbnails[i].src;
         fadeIn();
         i = 1; // If I don't make i =1 I will see first pic 2 times
     }
 
     else if ( i === 0 && j === 0) {
-        current.src = thumbnails[i].src;
+
+        currentImg.src = thumbnails[i].src;
         i++; // After this runs add +1 to i
         j++; // After this one time it will never run again because only the first time it runs both i and j are 0
 
     }
 
+
     else {
         
-        current.src = thumbnails[i].src;
+        currentImg.src = thumbnails[i].src;
         fadeIn();
         i++; // Adds 1 to i
     
@@ -100,8 +106,8 @@ thumbnails.forEach(img => (img.style.opacity = 1)); // Resets opacity on each cl
 
 /*-------------------------- Starting / Stopping Autoplay -----------------------*/
 
-current.onclick = stopPlay; // On click stop autoplay
-current.ondblclick = carousel; //On double click start the autoplay
+currentImg.onclick = stopPlay; // On click stop autoplay
+currentImg.ondblclick = carousel; //On double click start the autoplay
 
 /*-------------------------- SLIDER ----------------------------*/
 
@@ -114,3 +120,74 @@ slider.oninput = function() {
   carousel();
 
 } 
+
+/*------------------------------ ARROW CLICK FUNCTIONS ---------------------------*/
+
+// Big trouble when I tried to do this. Things I did above made this a lot more complicated than it should
+
+function arrowRightClick() { 
+
+    stopPlay();
+    thumbnails.forEach(img => (img.style.opacity = 1));
+
+    if ( i === thumbnails.length ) {
+        
+        i = 0; // Resets i when at the end of thumbnails items
+        currentImg.src = thumbnails[i].src;
+        fadeIn();
+
+    }
+
+    else if ( i === 0 ) {
+
+        i++; // After this runs add +1 to i
+        currentImg.src = thumbnails[i++].src;
+        fadeIn();
+
+    }
+
+
+    else {
+        
+        currentImg.src = thumbnails[i].src;
+        fadeIn();
+        i++; // Adds 1 to i
+    
+        }
+
+}
+
+function arrowLeftClick() {
+
+    stopPlay();
+    thumbnails.forEach(img => (img.style.opacity = 1));
+
+    if ( i === 0 ) {
+
+        i = thumbnails.length - 1;
+        currentImg.src = thumbnails[i].src;
+        fadeIn();
+        i++;
+    }
+
+    else if ( i === 1) {
+
+        i = thumbnails.length - 1;
+        currentImg.src = thumbnails[i].src;
+        fadeIn();
+        i++;
+
+    }
+
+    else {
+        
+    currentImg.src = thumbnails[i-2].src;
+    i--;
+    fadeIn();
+
+    }
+    
+}
+
+arrow_right.onclick = arrowRightClick;
+arrow_left.onclick = arrowLeftClick;
