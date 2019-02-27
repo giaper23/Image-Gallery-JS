@@ -1,4 +1,5 @@
 /*----------------------------------- IMAGE GALLERY --------------------------------------*/
+
 alert("Click on the big image to STOP autoplay. \nDouble click it to START again. \nControl how fast images change with the SLIDER! \nYou can also click on the THUMBNAILS to choose an image! ");
 
 const currentImg = document.querySelector('#currentImg'); // The current image shown
@@ -11,6 +12,7 @@ let i = 0; // Counts the items in thumbnails
 let j = 0; // Needed to count the first time a loop runs
 
 let thumbnailAudio = new Audio('Sound/click.mp3'); // Sound effect for clicking thumbnails
+let arrowAudio = new Audio('Sound/slide.mp3'); // Sound effect for clicking the arrows
 
 let slider = document.getElementById("myRange");
 let output = document.getElementById("demo");
@@ -53,8 +55,6 @@ function thumbnailClick(e) {
     thumbnailAudio.currentTime = 0; // Time of play is now reset
 
     thumbnailAudio.play(); // Everytime we click a thumbnail this sound plays
-
-    console.log("I:", i);
 
 }
 
@@ -127,7 +127,14 @@ slider.oninput = function() {
 
 function arrowRightClick() { 
 
+    arrowAudio.pause(); 
+
+    arrowAudio.currentTime = 0; 
+
+    arrowAudio.play(); 
+
     stopPlay();
+
     thumbnails.forEach(img => (img.style.opacity = 1));
 
     if ( i === thumbnails.length ) {
@@ -159,7 +166,14 @@ function arrowRightClick() {
 
 function arrowLeftClick() {
 
+    arrowAudio.pause(); 
+
+    arrowAudio.currentTime = 0; 
+
+    arrowAudio.play(); 
+
     stopPlay();
+
     thumbnails.forEach(img => (img.style.opacity = 1));
 
     if ( i === 0 ) {
