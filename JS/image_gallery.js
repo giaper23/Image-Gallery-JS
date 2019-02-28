@@ -60,33 +60,40 @@ function thumbnailClick(e) {
 
 /* For each img in the div with class name "thumbnails", listen for click then call function thumbnailCLick */
 thumbnails.forEach(img => img.addEventListener('click', thumbnailClick));
+thumbnails[i].style.opacity = opacity;
 
 /*--------------------------------------- AUTOPLAY FUNCTION -----------------------------------*/
 
 function autoPlay() { 
 
     if ( i === thumbnails.length ) {
-        
+        thumbnails.forEach(img => (img.style.opacity = 1));
         i = 0; // Resets i when at the end of thumbnails items
         currentImg.src = thumbnails[i].src;
         fadeIn();
         i = 1; // If I don't make i =1 I will see first pic 2 times
+        thumbnails[i-1].style.opacity = opacity;
+
     }
 
     else if ( i === 0 && j === 0) {
-
+        
         currentImg.src = thumbnails[i].src;
         i++; // After this runs add +1 to i
         j++; // After this one time it will never run again because only the first time it runs both i and j are 0
+        thumbnails[i-1].style.opacity = opacity;
+
 
     }
 
 
     else {
-        
+        thumbnails.forEach(img => (img.style.opacity = 1)); // Resets opacity on each click
         currentImg.src = thumbnails[i].src;
         fadeIn();
         i++; // Adds 1 to i
+        
+        thumbnails[i-1].style.opacity = opacity;
     
         }
 
@@ -100,7 +107,6 @@ function carousel() {
 
 clearInterval(interval); // Stops the autoplay <---- Very important, without it I could only stop and start one time!
 interval = setInterval(autoPlay, slider.value * 1000); // Call autoPlay every X ms
-thumbnails.forEach(img => (img.style.opacity = 1)); // Resets opacity on each click
 
 }
 
@@ -140,8 +146,11 @@ function arrowRightClick() {
     if ( i === thumbnails.length ) {
         
         i = 0; // Resets i when at the end of thumbnails items
+        
         currentImg.src = thumbnails[i].src;
+        thumbnails[i].style.opacity = opacity;
         fadeIn();
+        
 
     }
 
@@ -150,6 +159,7 @@ function arrowRightClick() {
         i++; // After this runs add +1 to i
         currentImg.src = thumbnails[i++].src;
         fadeIn();
+        thumbnails[i-1].style.opacity = opacity;
 
     }
 
@@ -159,6 +169,7 @@ function arrowRightClick() {
         currentImg.src = thumbnails[i].src;
         fadeIn();
         i++; // Adds 1 to i
+        thumbnails[i-1].style.opacity = opacity;
     
         }
 
@@ -178,18 +189,21 @@ function arrowLeftClick() {
 
     if ( i === 0 ) {
 
-        i = thumbnails.length - 1;
-        currentImg.src = thumbnails[i].src;
-        fadeIn();
-        i++;
+    i = thumbnails.length - 1;
+    currentImg.src = thumbnails[i].src;
+    fadeIn();
+    i++;
+    thumbnails[i-1].style.opacity = opacity;
+
     }
 
     else if ( i === 1) {
 
-        i = thumbnails.length - 1;
-        currentImg.src = thumbnails[i].src;
-        fadeIn();
-        i++;
+    i = thumbnails.length - 1;
+    currentImg.src = thumbnails[i].src;
+    fadeIn();
+    i++;
+    thumbnails[i-1].style.opacity = opacity;
 
     }
 
@@ -198,6 +212,7 @@ function arrowLeftClick() {
     currentImg.src = thumbnails[i-2].src;
     i--;
     fadeIn();
+    thumbnails[i-1].style.opacity = opacity;
 
     }
     

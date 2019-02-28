@@ -29,7 +29,7 @@ main {
     max-width: 1200px;
     box-shadow: 1px 3px 5px black;
     border-radius: 10px;
-    width: 90%;
+    width: 50%;
 }
 
 .gallery img, .thumbnails img {
@@ -64,12 +64,13 @@ main {
     z-index: 100;
     width: 3%;
     cursor: pointer;
+
 }
 
 .thumbnails {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    grid-gap: 5px;
+    grid-gap: 5px 5px; 
     cursor: pointer;
 }
 
@@ -82,7 +83,7 @@ footer {
 /*-------------------------- SLIDER ------------------------------*/
 
 .slidecontainer {
-    width: 80%; /* Width of the outside container */
+    width: 50%; /* Width of the outside container */
     padding: 1%;
   }
   
@@ -111,7 +112,7 @@ footer {
     appearance: none;
     width: 25px; 
     height: 25px; 
-    background: url(../Logo/speedometer.png); 
+  /*  background: url(../Logo/speedometer.png); */
     background-size: cover;
     cursor: pointer; 
   }
@@ -119,7 +120,7 @@ footer {
   .slider::-moz-range-thumb {
     width: 25px; 
     height: 25px; 
-    background: url(../Logo/speedometer.png);
+  /*  background: url(../Logo/speedometer.png); */
     background-size: cover;
     cursor: pointer; 
   }
@@ -160,12 +161,28 @@ footer p {
 @media only screen and (max-width: 600px) {
 
     .thumbnails {
+
         grid-template-columns: repeat(5, 1fr);
+
     }
 
     footer p {
+
         width: 10%;
+
     }
+
+    main {
+
+        width: 90%;
+
+    }
+
+    .slidecontainer {
+
+        width: 80%; /* Width of the outside container */
+
+      }
 
     #design {
         width: 28%;
