@@ -112,7 +112,7 @@ footer {
     appearance: none;
     width: 25px; 
     height: 25px; 
-  /*  background: url(../Logo/speedometer.png); */
+    background: url(../Logo/speedometer.png); 
     background-size: cover;
     cursor: pointer; 
   }
@@ -120,19 +120,40 @@ footer {
   .slider::-moz-range-thumb {
     width: 25px; 
     height: 25px; 
-  /*  background: url(../Logo/speedometer.png); */
+    background: url(../Logo/speedometer.png); 
     background-size: cover;
     cursor: pointer; 
   }
 
 /*------------------------- SLIDER END ----------------------------------*/
 
-footer p {
+footer #counter_p {
     color: white;
     background: rgba(0,0,0,0.9);
     width: 5%;
     font-family: 'Lobster', cursive;
     border-radius: 10px;
+}
+
+#instructions {
+    color: white;
+    font-family: 'Lobster', cursive;
+    cursor: pointer;
+    background: rgba(0,0,0,0.9);
+    min-width: 15%;
+    max-width: 30%;
+    margin-top: 3%;
+    border-radius: 5px;
+    border: 1px solid white;
+    text-align: center;
+    box-shadow: 1px 1px 5px black;
+}
+
+#instructions:hover {
+
+    color: black;
+    background: rgba(250,250,250,0.9);
+    border: 1px solid black;
 }
 
 #design {
@@ -160,15 +181,33 @@ footer p {
 
 @media only screen and (max-width: 600px) {
 
+    #arrow_left {
+
+        width: 5%;
+    
+    }
+    
+    #arrow_right {
+    
+        width: 5%;
+    
+    }
+
     .thumbnails {
 
         grid-template-columns: repeat(5, 1fr);
 
     }
 
-    footer p {
+    footer #counter_p {
 
         width: 10%;
+
+    }
+
+    #instructions {
+
+        width: 35%;
 
     }
 

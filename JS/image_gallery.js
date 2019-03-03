@@ -1,7 +1,5 @@
 /*----------------------------------- IMAGE GALLERY --------------------------------------*/
 
-alert("Click on the big image to STOP autoplay. \nDouble click it to START again. \nControl how fast images change with the SLIDER! \nYou can also click on the THUMBNAILS to choose an image! ");
-
 const currentImg = document.querySelector('#currentImg'); // The current image shown
 const arrow_left = document.querySelector('#arrow_left'); // The left arrow
 const arrow_right = document.querySelector('#arrow_right'); // The right arrow
@@ -14,8 +12,10 @@ let j = 0; // Needed to count the first time a loop runs
 let thumbnailAudio = new Audio('Sound/click.mp3'); // Sound effect for clicking thumbnails
 let arrowAudio = new Audio('Sound/slide.mp3'); // Sound effect for clicking the arrows
 
-let slider = document.getElementById("myRange");
-let output = document.getElementById("demo");
+let slider = document.getElementById("myRange"); // My slider
+let output = document.getElementById("counter"); // Showing the number of the slider
+
+let instructions = document.querySelector('#instructions'); // My instructions for the image gallery
 
 /*------------------------------------ FADE IN FUNCTION ---------------------------------------*/
 
@@ -119,17 +119,17 @@ currentImg.ondblclick = carousel; //On double click start the autoplay
 
 output.innerHTML = slider.value; // Display the default slider value
 
-// Update the current slider value (each time you drag the slider handle)
+
 slider.oninput = function() {
 
-  output.innerHTML = this.value;
+  output.innerHTML = this.value; // Update the current slider value (each time you drag the slider handle)
   carousel();
 
 } 
 
 /*------------------------------ ARROW CLICK FUNCTIONS ---------------------------*/
 
-// Big trouble when I tried to do this. Things I did above made this a lot more complicated than it should
+// Big trouble when I tried to do this. Things I did above in my code made this a lot more complicated than it should
 
 function arrowRightClick() { 
 
@@ -218,5 +218,13 @@ function arrowLeftClick() {
     
 }
 
-arrow_right.onclick = arrowRightClick;
-arrow_left.onclick = arrowLeftClick;
+arrow_right.onclick = arrowRightClick; // Right arrow click function
+arrow_left.onclick = arrowLeftClick; // Left arrow click function
+
+/*---------------------------------- INSTRUCTIONS -----------------------------------*/
+
+instructions.onclick = function() {
+
+    alert("INSTRUCTIONS:\n\n1.Click on the big image to STOP autoplay. \n2.Double click the big image to START again. \n3.Change LIVE how fast the images change with the SLIDER! \n4.You can click on the THUMBNAILS or ARROWS to change images. \n\n*Changing the slider value STARTS the autoplay again. \n*Selecting a thumbnail or clicking an arrow STOPS the autoplay."); // Instructions
+
+}
