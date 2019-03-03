@@ -156,17 +156,6 @@ footer #counter_p {
     border: 1px solid black;
 }
 
-#design {
-    margin-top: 20px;
-    color: white;
-    border: 1px solid white;
-    background: rgba(0,0,0,0.8);
-    font-family: 'Lobster', cursive;
-    width: 12%;
-    border-radius: 10px;
-    box-shadow: 1px 1px 5px black;
-}
-
 /*----- Animation -----*/
 @keyframes fadeIn {
     to {
@@ -183,13 +172,13 @@ footer #counter_p {
 
     #arrow_left {
 
-        width: 5%;
+        width: 6%; /* Width of arrows in small screens */
     
     }
     
     #arrow_right {
     
-        width: 5%;
+        width: 6%; /* Width of arrows in small screens */
     
     }
 
@@ -207,7 +196,7 @@ footer #counter_p {
 
     #instructions {
 
-        width: 35%;
+        min-width: 40%;
 
     }
 
