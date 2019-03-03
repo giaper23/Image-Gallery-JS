@@ -150,6 +150,7 @@ function arrowRightClick() {
         currentImg.src = thumbnails[i].src;
         thumbnails[i].style.opacity = opacity;
         fadeIn();
+        i++;
         
 
     }
