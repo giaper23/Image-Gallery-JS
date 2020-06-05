@@ -9,8 +9,8 @@ const opacity = 0.3; // Opacity value
 let i = 0; // Counts the items in thumbnails
 let j = 0; // Needed to count the first time a loop runs
 
-let thumbnailAudio = new Audio('Sound/click.mp3'); // Sound effect for clicking thumbnails
-let arrowAudio = new Audio('Sound/slide.mp3'); // Sound effect for clicking the arrows
+let thumbnailAudio = new Audio('sound/click.mp3'); // sound effect for clicking thumbnails
+let arrowAudio = new Audio('sound/slide.mp3'); // sound effect for clicking the arrows
 
 let slider = document.getElementById("myRange"); // My slider
 let output = document.getElementById("counter"); // Showing the number of the slider
@@ -50,7 +50,7 @@ function thumbnailClick(e) {
 
     i = thumbnails.indexOf(e.target) + 1;
 
-    thumbnailAudio.pause(); // Sound effect lasts some time so if we press the button faster it will be stopped, then played
+    thumbnailAudio.pause(); // sound effect lasts some time so if we press the button faster it will be stopped, then played
 
     thumbnailAudio.currentTime = 0; // Time of play is now reset
 

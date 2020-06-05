@@ -5,7 +5,7 @@
 }
 
 .container {
-    background-image: url(../Background/cars.jpg);
+    background-image: url(../background/cars.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -112,7 +112,7 @@ footer {
     appearance: none;
     width: 25px; 
     height: 25px; 
-    background: url(../Logo/speedometer.png); 
+    background: url(../logo/speedometer.png); 
     background-size: cover;
     cursor: pointer; 
   }
@@ -120,7 +120,7 @@ footer {
   .slider::-moz-range-thumb {
     width: 25px; 
     height: 25px; 
-    background: url(../Logo/speedometer.png); 
+    background: url(../logo/speedometer.png); 
     background-size: cover;
     cursor: pointer; 
   }
