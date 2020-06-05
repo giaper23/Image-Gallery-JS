@@ -1,6 +1,6 @@
 # Image Gallery
 
-A custom Image Gallery with sound effects using <b>JavaScript</b>!
+A custom Image Gallery with sound effects and controls using <b>JavaScript</b>!
 
 -----------------------------------------------------------
 
